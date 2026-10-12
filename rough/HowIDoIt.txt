@@ -1,0 +1,48 @@
+//from start (without this repo)
+npx @react-native-community/cli@latest init ReactNativeAppStarter
+
+
+//add file
+android/local.properties             //sdk.dir=C:/Users/shivam/AppData/Local/Android/Sdk
+
+//correct directory tree made
+//check all exist -> npm ls react-native @react-navigation/native @react-navigation/bottom-tabs react-native-screens react-native-safe-area-context 
+npm install @react-navigation/native @react-navigation/bottom-tabs react-native-screens             //install required
+
+//build directory tree
+src
+ ┣ app
+ ┃ ┣ navigation
+ ┃ ┃ ┣ AppNavigator.jsx
+ ┃ ┃ ┗ BottomTabNavigator.jsx
+ ┃ ┗ providers
+ ┃ ┃ ┗ AppProviders.jsx
+ ┣ features
+ ┃ ┣ explore
+ ┃ ┃ ┗ screens
+ ┃ ┃ ┃ ┗ ExploreScreen.jsx
+ ┃ ┣ home
+ ┃ ┃ ┗ screens
+ ┃ ┃ ┃ ┗ HomeScreen.jsx
+ ┃ ┗ profile
+ ┃ ┃ ┗ screens
+ ┃ ┃ ┃ ┗ ProfileScreen.jsx
+ ┗ shared
+
+
+
+//Running commands
+
+npm i
+emulator -list-avds
+adb devices
+emulator -avd <device_name>             //medium_phone
+npx react-native run-android
+
+
+//for full rebuild cleanup
+cd android
+.\gradlew cleanup
+cd..
+npx react-native start --reset-cache
+npx react-native run-android              //another terminal
